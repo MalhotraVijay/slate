@@ -1,20 +1,27 @@
 # Errors
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">SmartScreen API will send error code when there is an error for the request sent. The response will contain a key errorCode which will be the reason for the occurance of error.</aside>
 
-The Kittn API uses the following error codes:
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": true,
+  "message" : "Error message",
+  "error_code" : error_code
+}
+```
+
+The SmartScreen API uses the following error codes:
 
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
+101 | Report Failed -- The report processing failed
+102 | Report Pending -- The report is in pending state
+103 | Value Error -- Values sent in the request are not correct
+104 | Incomplete applicant information -- The specified Applicant information is either invalid or incomplete
+105 | Invalid Billing Option -- Your billing options are incorrect
+106 | Unauthorised access -- You are not authorized to make this request
 500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
